@@ -9,12 +9,27 @@ package mx.edu.uacm.herramientas.domain;//
 //
 //
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotNull;
+
 
 
 public class Materia {
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private Long id;
+	@NotNull
 	private String nombre;
+	@NotNull
 	private int semestre;
-	public Herramienta software;
+	
+	@ManyToOne
+	@JoinColumn(name="Herramienta_id")
+	private Herramienta herramienta;
 	public String getNombre() {
 		return nombre;
 	}
@@ -27,12 +42,31 @@ public class Materia {
 	public void setSemestre(int semestre) {
 		this.semestre = semestre;
 	}
-	public Herramienta getSoftware() {
-		return software;
+	/**
+	 * @return the id
+	 */
+	public Long getId() {
+		return id;
 	}
-	public void setSoftware(Herramienta software) {
-		this.software = software;
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(Long id) {
+		this.id = id;
 	}
+	/**
+	 * @return the herramienta
+	 */
+	public Herramienta getHerramienta() {
+		return herramienta;
+	}
+	/**
+	 * @param herramienta the herramienta to set
+	 */
+	public void setHerramienta(Herramienta herramienta) {
+		this.herramienta = herramienta;
+	}
+	
 	
 	
 	

@@ -4,7 +4,7 @@ import mx.edu.uacm.herramientas.domain.Materia;
 
 public interface MateriaService {
 	void agregarMateria(Materia materia);
-	Materia buscarMateriaXNombre(String nombre);
+	Materia buscarMateriaXNombre(Long id);
 	
 
 }

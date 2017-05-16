@@ -1,11 +1,30 @@
 package mx.edu.uacm.herramientas.domain;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 public class Persona {
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private Long id;
+	@NotNull
 	private String nombre;
+	@NotNull
 	private String apellidoPaterno;
+	@Size(max=70)
 	private String apellidoMaterno;
+	@NotNull
 	private String email;
+	@NotNull
 	private String telefono;
+	@OneToOne
+	private Administrador administrador;
+	
+	
 	/**
 	 * @return the nombre
 	 */
@@ -65,6 +84,18 @@ public class Persona {
 	 */
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
+	}
+	public Administrador getAdministrador() {
+		return administrador;
+	}
+	public void setAdministrador(Administrador administrador) {
+		this.administrador = administrador;
+	}
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
 	}
 	
 	

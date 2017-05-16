@@ -9,18 +9,63 @@ package mx.edu.uacm.herramientas.domain;//
 //
 //
 
-
-
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.validation.constraints.NotNull;
 
 public class Administrador extends Persona {
-	private String nombre;
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private Long id;
+	@NotNull
+	private String usuario;
+	@NotNull
 	private String contrasena;
-
-	public String getNombre() {
-		return nombre;
+	
+	@OneToOne
+	private Persona persona;
+	
+	/**
+	 * @return the persona
+	 */
+	public Persona getPersona() {
+		return persona;
 	}
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	/**
+	 * @param persona the persona to set
+	 */
+	public void setPersona(Persona persona) {
+		this.persona = persona;
+	}
+	/**
+	 * @return the id
+	 */
+	public Long getId() {
+		return id;
+	}
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+
+	
+	/**
+	 * @return the usuario
+	 */
+	public String getUsuario() {
+		return usuario;
+	}
+	/**
+	 * @param usuario the usuario to set
+	 */
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
 	}
 	public String getContrasena() {
 		return contrasena;
