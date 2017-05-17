@@ -9,65 +9,93 @@ package mx.edu.uacm.herramientas.domain;//
 //
 //
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotNull;
 
-
-
+@Entity
 public class Materia {
+	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="materia_id")
 	private Long id;
+	
 	@NotNull
 	private String nombre;
+	
 	@NotNull
 	private int semestre;
 	
-	@ManyToOne
-	@JoinColumn(name="Herramienta_id")
-	private Herramienta herramienta;
-	public String getNombre() {
-		return nombre;
-	}
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-	public int getSemestre() {
-		return semestre;
-	}
-	public void setSemestre(int semestre) {
-		this.semestre = semestre;
-	}
+	@ManyToMany(fetch = FetchType.EAGER, mappedBy="materia", cascade={CascadeType.ALL})
+	private List <Herramienta> herramientas;
+
 	/**
 	 * @return the id
 	 */
 	public Long getId() {
 		return id;
 	}
+
 	/**
 	 * @param id the id to set
 	 */
 	public void setId(Long id) {
 		this.id = id;
 	}
+
 	/**
-	 * @return the herramienta
+	 * @return the nombre
 	 */
-	public Herramienta getHerramienta() {
-		return herramienta;
+	public String getNombre() {
+		return nombre;
 	}
+
 	/**
-	 * @param herramienta the herramienta to set
+	 * @param nombre the nombre to set
 	 */
-	public void setHerramienta(Herramienta herramienta) {
-		this.herramienta = herramienta;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	/**
+	 * @return the semestre
+	 */
+	public int getSemestre() {
+		return semestre;
+	}
+
+	/**
+	 * @param semestre the semestre to set
+	 */
+	public void setSemestre(int semestre) {
+		this.semestre = semestre;
+	}
+
+	/**
+	 * @return the herramientas
+	 */
+	public List<Herramienta> getHerramientas() {
+		return herramientas;
+	}
+
+	/**
+	 * @param herramientas the herramientas to set
+	 */
+	public void setHerramientas(List<Herramienta> herramientas) {
+		this.herramientas = herramientas;
 	}
 	
 	
 	
+		
 	
 }
