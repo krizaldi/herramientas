@@ -33,7 +33,7 @@ public class Materia {
 	private String nombre;
 	
 	@NotNull
-	private int semestre;
+	private String semestre;
 	
 	@ManyToMany(fetch = FetchType.EAGER, mappedBy="materia", cascade={CascadeType.ALL})
 	private List <Herramienta> herramientas;
@@ -69,15 +69,15 @@ public class Materia {
 	/**
 	 * @return the semestre
 	 */
-	public int getSemestre() {
+	public String getSemestre() {
 		return semestre;
 	}
 
 	/**
-	 * @param semestre the semestre to set
+	 * @param string the semestre to set
 	 */
-	public void setSemestre(int semestre) {
-		this.semestre = semestre;
+	public void setSemestre(String string) {
+		this.semestre = string;
 	}
 
 	/**

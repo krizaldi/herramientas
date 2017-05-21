@@ -1,15 +1,12 @@
 package mx.edu.uacm.herramientas.domain;//
 
-import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
 //
@@ -47,8 +44,25 @@ public class Herramienta {
 	
 	private String periodoLicencia;
 		
-	@ManyToMany(fetch = FetchType.EAGER, mappedBy="herramienta", cascade={CascadeType.ALL})
-	private List<Materia> materias;
+	@ManyToOne
+	@JoinColumn(name="Materia_id")
+	private Materia materia;
+
+	
+	
+	/**
+	 * @return the materia
+	 */
+	public Materia getMateria() {
+		return materia;
+	}
+
+	/**
+	 * @param materia the materia to set
+	 */
+	public void setMateria(Materia materia) {
+		this.materia = materia;
+	}
 
 	/**
 	 * @return the id
@@ -165,16 +179,7 @@ public class Herramienta {
 	/**
 	 * @return the materias
 	 */
-	public List<Materia> getMaterias() {
-		return materias;
-	}
 
-	/**
-	 * @param materias the materias to set
-	 */
-	public void setMaterias(List<Materia> materias) {
-		this.materias = materias;
-	}
 	
 	
 	

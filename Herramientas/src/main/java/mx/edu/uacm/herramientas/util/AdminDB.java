@@ -112,8 +112,8 @@ public class AdminDB {
 			Herramienta software=new Herramienta();
 			software.setNombre(resultados.getString(1));
 			software.setVersion(resultados.getString(2));
-			software.setTipoDlicencia(resultados.getString(3));
-			software.setPeriodo(resultados.getString(4));
+			software.setCategoriaSoftware(resultados.getString(3));
+			software.setPeriodoLicencia(resultados.getString(4));
 			software.setCosto(resultados.getString(5));
 			software.setDescripcion(resultados.getString(6));
 			software.setUrl(resultados.getString(7));
@@ -137,7 +137,7 @@ public class AdminDB {
 		if(conexion!=null){
 			try {proposicion=conexion.createStatement();
 			ordenSQL="INSERT INTO herramientas VALUES('"+herramienta.getNombre()+"','"+herramienta.getVersion()+"','"
-			+herramienta.getTipoDlicencia()+"','"+herramienta.getPeriodo()+"','"+herramienta.getCosto()+"','"
+			+herramienta.getCategoriaSoftware()+"','"+herramienta.getPeriodoLicencia()+"','"+herramienta.getCosto()+"','"
 			+herramienta.getDescripcion()+"','"+herramienta.getUrl()+"','"+herramienta.getMateria().getNombre()+"'); ";	
 			proposicion.executeUpdate(ordenSQL);
 			mensaje="operacion realizada";
@@ -186,8 +186,8 @@ public class AdminDB {
 				while(resultados.next()){
 				herramienta.setNombre(resultados.getString(1));
 				herramienta.setVersion(resultados.getString(2));
-				herramienta.setTipoDlicencia(resultados.getString(3));
-				herramienta.setPeriodo(resultados.getString(4));
+				herramienta.setCategoriaSoftware(resultados.getString(3));
+				herramienta.setPeriodoLicencia(resultados.getString(4));
 				herramienta.setCosto(resultados.getString(5));
 				herramienta.setDescripcion(resultados.getString(6));
 				herramienta.setUrl(resultados.getString(7));
@@ -262,8 +262,8 @@ public class AdminDB {
 			Herramienta software=new Herramienta();
 			software.setNombre(resultados.getString(1));
 			software.setVersion(resultados.getString(2));
-			software.setTipoDlicencia(resultados.getString(3));
-			software.setPeriodo(resultados.getString(4));
+			software.setCategoriaSoftware(resultados.getString(3));
+			software.setPeriodoLicencia(resultados.getString(4));
 			software.setCosto(resultados.getString(5));
 			software.setDescripcion(resultados.getString(6));
 			software.setUrl(resultados.getString(7));
