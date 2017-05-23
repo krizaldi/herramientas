@@ -22,8 +22,7 @@ public class Persona {
 	private String email;
 	@NotNull
 	private String telefono;
-	@OneToOne
-	private Administrador administrador;
+
 	
 	
 	/**
