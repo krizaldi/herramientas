@@ -19,6 +19,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -35,7 +36,7 @@ public class Materia {
 	@NotNull
 	private String semestre;
 	
-	@ManyToMany(fetch = FetchType.EAGER, mappedBy="materia", cascade={CascadeType.ALL})
+	@OneToMany(fetch = FetchType.EAGER, mappedBy="materia", cascade={CascadeType.ALL})
 	private List <Herramienta> herramientas;
 
 	/**
