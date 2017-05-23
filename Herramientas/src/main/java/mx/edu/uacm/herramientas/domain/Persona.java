@@ -4,7 +4,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 @Entity
@@ -84,12 +83,6 @@ public class Persona {
 	 */
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
-	}
-	public Administrador getAdministrador() {
-		return administrador;
-	}
-	public void setAdministrador(Administrador administrador) {
-		this.administrador = administrador;
 	}
 	public Long getId() {
 		return id;

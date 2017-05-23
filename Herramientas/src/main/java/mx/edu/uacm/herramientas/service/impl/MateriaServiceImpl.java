@@ -28,23 +28,23 @@ public class MateriaServiceImpl implements MateriaService {
 		if(log.isDebugEnabled())
 			log.debug("Entrando al metodo agregarMateria ");
 		
-if(materia.getNombre().matches("Introducción a la programación|Introducción a la ingeniería en software|Programación orientada a objetos|Estructura de datos|Análisis de algoritmos"
+if(!(materia.getNombre().matches("Introducción a la programación|Introducción a la ingeniería en software|Programación orientada a objetos|Estructura de datos|Análisis de algoritmos"
 		+ "|Teoría de la computación|Construcción y evolución del software|Bases de datos|Análisis de requisitos|Programación web|"
 		+ "Sistemas operativos|Aseguramiento de la calidad del software|Análisis y modelamiento de software|Programación de sistemas|"
 		+ "Arquitectura de computadoras|Lenguajes de programación|Técnicas de pruebas de software|Diseño de software|Metodología de la investigación"
 		+ "|Redes de computadoras|Normatividad y legislación|Arquitectura de software"
 		+ "|Sistemas distribuidos|Administración de proyectos I|Métricas de software"
-		+ "|Diseño de experimentos en ingeniería de software|Administración de proyectos II|Gestión tecnológica")){
+		+ "|Diseño de experimentos en ingeniería de software|Administración de proyectos II|Gestión tecnológica"))){
 			return messages.getMessage("message.mal.mat",new Object[]{materia.getNombre()}, LocaleContextHolder.getLocale());
 		}
 		if(materia.getNombre().length()>50){
 			return messages.getMessage("message.max.mat", null, LocaleContextHolder.getLocale());
 		}
-		if(String.valueOf(materia.getSemestre()).matches("^[0-9]+2$")){
+		if(!(materia.getSemestre().matches("^[0-9]+2$"))){
 			
 			return messages.getMessage("message.sem", null, LocaleContextHolder.getLocale());
 		}
-		if(String.valueOf(materia.getSemestre()).length()>2){
+		if(materia.getSemestre().length()>2){
 			return messages.getMessage("message.max.sem", null, LocaleContextHolder.getLocale());
 		}
 

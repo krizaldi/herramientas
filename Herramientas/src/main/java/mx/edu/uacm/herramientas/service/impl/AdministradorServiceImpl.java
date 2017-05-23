@@ -28,25 +28,25 @@ public class AdministradorServiceImpl implements AdministradorService {
 	
 	
 	public String agregarAdministrador(Administrador administrador) {
-		if(administrador.getApellidoPaterno().matches("[A-Za-zÁ\\s]+")){
+		if(!(administrador.getApellidoPaterno().matches("[A-Za-zÁ\\s]+"))){
 			return messages.getMessage("E002", null, LocaleContextHolder.getLocale());
 			
 		}
-		if(administrador.getNombre().matches("[A-Za-zÁ\\s]+")){
+		if(!(administrador.getNombre().matches("[A-Za-zÁ\\s]+"))){
 			return messages.getMessage("E001", null, LocaleContextHolder.getLocale());
 			
 		}
-		if(administrador.getApellidoMaterno().matches("[A-Za-zÁ\\s]+")){
+		if(!(administrador.getApellidoMaterno().matches("[A-Za-zÁ\\s]+"))){
 			return messages.getMessage("E003", null, LocaleContextHolder.getLocale());
 			
 			
 		}
-		if(administrador.getEmail().matches("^[_a-z0-9-]+(.[_a-z0-9-]+)*@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z]{2,4})$")){
+		if(!(administrador.getEmail().matches("^[_a-z0-9-]+(.[_a-z0-9-]+)*@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z]{2,4})$"))){
 			
 			return messages.getMessage("E006", null, LocaleContextHolder.getLocale());
 			
 		}
-	    if(administrador.getTelefono().matches("^[0-9]*$")){
+	    if(!(administrador.getTelefono().matches("^[0-9]*$"))){
 	    	
 	    	return messages.getMessage("E005", null, LocaleContextHolder.getLocale());
 			
@@ -58,7 +58,7 @@ public class AdministradorServiceImpl implements AdministradorService {
 	    	
 	    }
 	    
-	    if(administrador.getContrasena().matches("[A-Za-zÁ\\s]+")){
+	    if(!(administrador.getContrasena().matches("[A-Za-zÁ\\s]+"))){
 	    	return messages.getMessage("E007", null, LocaleContextHolder.getLocale());
 			
 	    }
@@ -66,7 +66,7 @@ public class AdministradorServiceImpl implements AdministradorService {
 	    	return messages.getMessage("E004", null, LocaleContextHolder.getLocale());
 			
 	    }
-	    if(administrador.getUsuario().matches("[A-Za-zÁ\\s]+")){
+	    if(!(administrador.getUsuario().matches("[A-Za-zÁ\\s]+"))){
 	    	
 	    	return messages.getMessage("E004", null, LocaleContextHolder.getLocale());
 			
