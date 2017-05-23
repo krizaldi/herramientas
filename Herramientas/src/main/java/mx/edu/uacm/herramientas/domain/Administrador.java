@@ -14,12 +14,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.validation.constraints.NotNull;
 @Entity
 public class Administrador extends Persona {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	@NotNull
 	private String usuario;
@@ -27,6 +27,7 @@ public class Administrador extends Persona {
 	private String contrasena;
 	
 	@OneToOne
+	@PrimaryKeyJoinColumn
 	private Persona persona;
 	
 	/**
